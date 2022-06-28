@@ -1,0 +1,72 @@
+:root {
+  --cell-size: 20px;
+  --snake-body-color: blue;
+  --point-size: 20px;
+  --point-color: orange;
+}
+
+.game-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board {
+  position: relative;
+  width: calc(var(--max-x) * var(--cell-size));
+  height: calc(var(--max-y) * var(--cell-size));
+  background-color: gray;
+  border: 3px solid #666;
+  margin: var(--cell-size);
+  overflow: hidden;
+}
+
+.snake-body {
+  position: absolute;
+  left: calc(var(--x) * var(--cell-size));
+  top: calc(var(--y) * var(--cell-size));
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: var(--snake-body-color);
+  border: 1px solid #999;
+  border-radius: 20%;
+}
+
+.point {
+  position: absolute;
+  left: calc(var(--x) * var(--cell-size));
+  top: calc(var(--y) * var(--cell-size));
+  width: var(--point-size);
+  height: var(--point-size);
+  z-index: 100;
+  background-color: var(--point-color);
+  border-radius: 50%;
+  border: 5px solid transparent;
+  animation: scale 1s infinite linear backwards;
+  box-sizing: border-box;
+}
+
+@keyframes scale {
+  from {
+  transform: scale(1);
+}
+  to {
+  transform: scale(1.2);
+}
+}
+
+.menu-form {
+  margin: var(--cell-size);
+}
+
+.menu-form input[type="number"] {
+  width: 40px;
+}
+
+.menu-form label {
+  min-width: 150px;
+  display: inline-block;
+}
+
+.leaderboard {
+  border-left: 1px solid #000;
+}
